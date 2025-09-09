@@ -7,7 +7,7 @@ import { SubNavbar } from "../shared/SubNavbar"
 
 export const StoreLayout = () => {
   return (
-    <Box sx={{display: 'flex', flexDirection: 'column', height: '100vh'}}>
+    <Box sx={{display: 'flex', flexDirection: 'column', alignItems: "center", minHeight: "100vh"}}>
         <Navbar />
         <SubNavbar />
       <Box sx={{flex: 1}}>

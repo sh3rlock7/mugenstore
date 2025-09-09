@@ -1,40 +1,35 @@
-import { Box } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import { ProductItem } from "./ProductItem"
-
-const productos = [
-    {
-        id: 1,
-        name: 'Kevin'
-    },
-    {
-        id: 2,
-        name: 'Emma'
-    },
-    {
-        id: 3,
-        name: 'Carla'
-    }
-]
+import { useProducts } from "../hooks/useProducts"
 
 
 export const ProductList = () => {
     
-  
-    return (
-    <Box  sx={{
-        display: "flex",
-        flexWrap: "wrap",         // 👈 permite que los items hagan wrap
-        justifyContent: "center", // 👈 centra los items
-        gap: 2,                   // 👈 espacio entre items
-        flexGrow: 1,              // 👈 ocupa espacio disponible y no empuja el footer
-        p: 2, 
-    }}>                 
-        {
-            productos.map( p => (
-                <ProductItem name={p.name}  key={p.id} />
-            ))
-        }
+    const {data} = useProducts(5)
 
+    return (
+    <Box sx={{ width: "100%", display: "flex", flexDirection: "column"}} >
+        <Typography variant="h1" sx={{textAlign: "left", ml: 3, mt: 5}}>Top Products</Typography>
+        <Box  
+        sx={{
+            bgcolor: "#f5f5f5",
+            width: "100%",
+            display: "flex",
+            flexWrap: "wrap",         
+            justifyContent: "center", 
+            gap: 2,                   
+            flexGrow: 1,          
+            p: 2,
+            mt: 2
+        }}>                 
+
+            {
+                data?.products.map( p => (
+                    <ProductItem product={p}  key={p.id} />
+                ))
+            }
+
+        </Box>
     </Box>
   )
 }
