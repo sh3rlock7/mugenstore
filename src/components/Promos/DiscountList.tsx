@@ -3,7 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
-import { Box } from "@mui/material";
+import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 
 import AppleWatch from "/images/AppleWatch.jpg";
@@ -13,26 +13,36 @@ import { DiscountItem } from "./DiscountItem";
 
 
 export const DiscountList = () => {
+  const theme = useTheme()
+   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <Box sx={{ width:"100%", maxWidth: 380, mt: 4, ml: 0}}>
+    <Container  disableGutters sx={{ display:"flex", flexDirection: "column", width:{xs: 385, md:"90%"}, py: 4, px: "2px"}}>
+      <Typography variant="h1" sx={{textAlign: "left", ml: 3}}>Week Deals</Typography>
       <Swiper
-        spaceBetween={15}
-        slidesPerView={1.12}
-        centeredSlides={true}
+        spaceBetween={6}
+        slidesPerView={1.1}
+         breakpoints={{
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          }
+        }}
+        centeredSlides={!isDesktop}
         pagination={{ clickable: true }}
         modules={[Pagination, Navigation]}
 
         >
         <SwiperSlide>
-          <DiscountItem src={Discount} alt="Special Discount" />
+              <DiscountItem src={Discount} alt="Special Discount" />
         </SwiperSlide>
         <SwiperSlide>
-          <DiscountItem src={AdidasDisc} alt="Adidas Sneakers" />
+              <DiscountItem src={AdidasDisc} alt="Adidas Sneakers" />
         </SwiperSlide>
         <SwiperSlide>
-          <DiscountItem src={AppleWatch} alt="Apple Watch series 10" />
+              <DiscountItem src={AppleWatch} />
+
         </SwiperSlide>
       </Swiper>
-      </Box>
+      </Container>
   );
 };

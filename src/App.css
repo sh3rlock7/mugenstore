@@ -1,5 +1,12 @@
-body{
+html, body{
+    overflow-x: hidden;
     background-color: #f5f5f5 !important;    
+}
+
+.swiper {
+  width: 100vw;
+  margin-left: 0;
+  margin-right: 100px;
 }
 
 .swiper-pagination {

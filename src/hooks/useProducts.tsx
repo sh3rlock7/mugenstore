@@ -4,10 +4,10 @@ import type { Products } from "../interfaces/Product.interface"
 
 
 
-export const useProducts = (limit: number) => {
+export const useProducts = (limit: number, skip: number) => {
   return useQuery<Products>({
-    queryKey: ["Products", limit],
-    queryFn: () => getProducts(limit),
+    queryKey: ["Products", limit, skip],
+    queryFn: () => getProducts(limit, skip),
     staleTime: 1000 * 60 * 60,
   });
 };

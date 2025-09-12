@@ -5,7 +5,7 @@ import { useProducts } from "../hooks/useProducts"
 
 export const ProductList = () => {
     
-    const {data} = useProducts(5)
+    const {data} = useProducts(5, 0)
 
     return (
     <Box sx={{ width: "100%", display: "flex", flexDirection: "column"}} >

@@ -95,12 +95,12 @@ export const ProductItem = ({ product }: Props) => {
               {product.tags[1]}
             </Typography>
           </Stack>
-          <Typography variant="body1" sx={{ mt: 2 }}>
+          <Typography variant="body1" sx={{ my: "20px" }}>
             {product.description}
           </Typography>
         </Box>
 
-        <Stack direction="row" sx={{ justifyContent: "space-between", mt: 2 }}>
+        <Stack direction="row" sx={{ justifyContent: "space-between"}}>
           <Stack direction="column">
             <Typography variant="h4">Price</Typography>
             <Typography variant="h4">€ {product.price}</Typography>

@@ -5,6 +5,7 @@ import Logo from '/images/logo.png';
 import { useShoppingCart } from "../hooks/useShoppingCart";
 import { CartPopover } from "./CartPopover";
 import { useShoppingStore } from "../store/useShoppingStore";
+import { SubNavbar } from "./SubNavbar";
 
 export const Navbar = () => {
   const theme = useTheme();
@@ -13,7 +14,7 @@ export const Navbar = () => {
   const cartLength = useShoppingStore(state => state.products.length)
 
   return (
-    <AppBar position="static" sx={{ bgcolor: darken(theme.palette.secondary.main, 0.5), minHeight: '80px' }}>
+    <AppBar position="static" sx={{ bgcolor: darken(theme.palette.secondary.main, 0.5), minHeight: '80px', mt: 0}}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", boxShadow: "none", borderBottom: "none" }}>
         <Menu sx={{ fontSize: 40, mt: 2.5, color: "white" }} />
         <Box
@@ -38,7 +39,7 @@ export const Navbar = () => {
         open={open}
         handleClose={handleClose}
       />
-      
+      <SubNavbar />
     </AppBar>
   );
 };
