@@ -59,6 +59,7 @@ export function createAppTheme() {
       h2: { fontSize: "1.8rem", fontWeight: 600, letterSpacing: "-.01em" },
       h3: { fontSize: "1.4rem", fontWeight: 600 },
       h4: { fontSize: "1.2rem", fontWeight: 700 },
+      h6: { fontSize: "0.9rem", fontWeight: 600 },
       body1: { fontSize: "1rem", lineHeight: 1.6, fontWeight: 600 },
       button: { textTransform: "none", fontWeight: 600 },
     },
