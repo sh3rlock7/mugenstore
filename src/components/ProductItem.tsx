@@ -33,7 +33,7 @@ export const ProductItem = ({ product }: Props) => {
         justifyContent: "center",
         color: theme.palette.text.primary,
         background: theme.palette.background.gradient,
-        p: 0,
+        p: 0
       }}
     >
       <IconButton
@@ -100,7 +100,7 @@ export const ProductItem = ({ product }: Props) => {
           </Typography>
         </Box>
 
-        <Stack direction="row" sx={{ justifyContent: "space-between"}}>
+        <Stack direction="row" sx={{ justifyContent: "space-between", mt: 2}}>
           <Stack direction="column">
             <Typography variant="h4">Price</Typography>
             <Typography variant="h4">€ {product.price}</Typography>

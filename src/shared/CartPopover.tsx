@@ -1,7 +1,8 @@
 import { Delete } from "@mui/icons-material";
 import { Box, Button, Divider, Grid, IconButton, Popover, Typography, useTheme } from "@mui/material"
 import { useShoppingStore } from "../store/useShoppingStore";
-
+import emptyCart from '../../public/images/EmptyCart.png'
+import {  useNavigate } from "react-router-dom";
 
 
 interface Props {
@@ -17,6 +18,15 @@ export const CartPopover = ( {anchorEl, id, open, handleClose}: Props ) => {
   const deleteProduct = useShoppingStore(state => state.removeProduct);
   const cartTotal = useShoppingStore(state => state.total);
   const theme = useTheme();
+
+  const navigate = useNavigate()
+
+  const handleCheckOut = () => {
+    navigate("checkout")
+    handleClose()
+  }
+
+
 
     return (
      <Popover
@@ -44,24 +54,35 @@ export const CartPopover = ( {anchorEl, id, open, handleClose}: Props ) => {
           >
             <Box  sx={{flex: 1, overflowY: "auto"}}>
                 <Grid container direction="row" size={12} sx={{mt: 2, textAlign: "center"}}>
+                  <Grid size={12}>
+                    <Typography variant="h1">Your Order</Typography>
+                  </Grid>
                   <Grid size={3} sx={{mt: 1}}></Grid>
                   <Grid size={3}>
-                    <Typography variant="h3" sx={{mt: 1}}>Qty</Typography>
+                    <Typography variant="h3" sx={{mt: 1}}>{cartProducts.length === 0 ? "" : "Qty"}</Typography>
                   </Grid>
                   <Grid size={3} >
-                    <Typography variant="h3" sx={{mt: 1}}>Price</Typography>
+                    <Typography variant="h3" sx={{mt: 1}}>{cartProducts.length === 0 ? "" : "Price"}</Typography>
                   </Grid>
                   <Grid size={3} sx={{mt: 1}}></Grid>
                 </Grid>
 
               {
                  cartProducts.length === 0 ? (
-                  <Box sx={{ textAlign: "center", py: 16 }}>
-                    <Typography variant="h3">Your cart is empty</Typography>
+                  <Box
+                    sx={{ display: "flex", justifyContent: "center", alignItems: "center"}}
+                  >
+                    <Box
+                      component="img"
+                      height={240}
+                      width={260}
+                      src={emptyCart}
+                      sx={{mt: 5}}
+                    />
                   </Box>
                 ) : ( 
                       cartProducts.map( products => (
-                          <Grid container direction="row" size={12}>
+                          <Grid container direction="row" size={12} sx={{textAlign: "center"}}>
                             <Grid size={3}>
                               <Box 
                                 component="img"
@@ -88,8 +109,23 @@ export const CartPopover = ( {anchorEl, id, open, handleClose}: Props ) => {
               }
             </Box>
               <Box sx={{ p: 2, textAlign: "center" }}>
-                <Typography variant="h3">Total Payment: € {cartTotal.toFixed(2)}</Typography>
-                <Button variant="contained" color="secondary" sx={{fontSize: theme.typography.h3, bgcolor: theme.palette.secondary.main, padding: 1, mt: 1 }}>Procede to checkout</Button>
+                <Typography variant="h3">{cartProducts.length === 0 ? "" : `Total Payment: € ${cartTotal.toFixed(2)}` }  </Typography>
+                {
+                  cartProducts.length === 0
+                   ? ""
+                   :
+                  
+                    <Button 
+                      variant="contained" 
+                      color="secondary" 
+                      sx={{fontSize: theme.typography.h3, bgcolor: theme.palette.secondary.main, padding: 1, mt: 1 }}
+                      onClick={handleCheckOut}
+                    >
+                      
+                      Procede to checkout
+                    </Button>
+                }
+                
               </Box>              
           </Popover>
   )

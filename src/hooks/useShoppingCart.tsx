@@ -7,7 +7,6 @@ export const useShoppingCart = () => {
 
         const handleCartClick = (event: React.MouseEvent<HTMLElement>) => {
             setAnchorEl(event.currentTarget);
-            console.log(event.currentTarget)
         };
         const handleClose = () => {
             setAnchorEl(null);
