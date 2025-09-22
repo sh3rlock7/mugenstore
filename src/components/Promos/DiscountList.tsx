@@ -3,7 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
-import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 
 import AppleWatch from "/images/AppleWatch.jpg";
@@ -13,21 +13,21 @@ import { DiscountItem } from "./DiscountItem";
 
 
 export const DiscountList = () => {
-  const theme = useTheme()
-   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  // const theme = useTheme()
+  //  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <Container  disableGutters sx={{ display:"flex", flexDirection: "column", width:{xs: 385, md:"90%"}, py: 4, px: "2px"}}>
+    <Box  sx={{ display:"flex", flexDirection: "column", width:"100%", py: 4, }}>
       <Typography variant="h1" sx={{textAlign: "left", ml: 3}}>Week Deals</Typography>
+      
       <Swiper
-        spaceBetween={6}
         slidesPerView={1.1}
          breakpoints={{
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          }
+          0: { slidesPerView: 1.1, spaceBetween: 0, centeredSlides:true },
+          600: { slidesPerView: 1.3, spaceBetween: 6 },
+          900: { slidesPerView: 2, spaceBetween: 16 },
+          1200: { slidesPerView: 3, spaceBetween:3},
         }}
-        centeredSlides={!isDesktop}
+        centeredSlides={false}
         pagination={{ clickable: true }}
         modules={[Pagination, Navigation]}
 
@@ -43,6 +43,6 @@ export const DiscountList = () => {
 
         </SwiperSlide>
       </Swiper>
-      </Container>
+      </Box>
   );
 };

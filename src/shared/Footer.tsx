@@ -7,6 +7,7 @@ export const Footer = () => {
 
   return (
     <Box
+      id="support"
       component="footer"
       sx={{
         bgcolor: theme.palette.background.paper,
@@ -19,12 +20,12 @@ export const Footer = () => {
       }}
     >
       {/* Footer Sections */}
-      <Grid container spacing={4} justifyContent="center">
-        <Grid size={{ xs: 6, sm: 6, md: 3 }}>
+      <Grid container spacing={5} justifyContent="center" >
+        <Grid size={{ xs: 6, sm: 3, md: 3 }}>
           <Typography variant="h6" gutterBottom sx={{ml:2}}>
             Shop
           </Typography>
-          <Box sx={{ml:2}}>
+          <Box sx={{ml: 2}}>
             <Link href="#" underline="hover" color="inherit" display="block">
               Men
             </Link>
@@ -40,7 +41,7 @@ export const Footer = () => {
           </Box>
         </Grid>
 
-        <Grid size={{ xs: 6, sm: 6, md: 3 }}>
+        <Grid size={{ xs: 6, sm: 3, md: 3 }}>
           <Typography variant="h6" gutterBottom>
             Information
           </Typography>
@@ -60,7 +61,7 @@ export const Footer = () => {
           </Box>
         </Grid>
 
-        <Grid size={{ xs: 6, sm: 6, md: 3 }}>
+        <Grid size={{ xs: 6, sm: 3, md: 3 }}>
           <Typography variant="h6" gutterBottom sx={{ml:2}}>
             Legal
           </Typography>
@@ -77,7 +78,7 @@ export const Footer = () => {
           </Box>
         </Grid>
 
-        <Grid size={{ xs: 6, sm: 6, md: 3 }}>
+        <Grid size={{ xs: 6, sm: 3, lg: 2 }}>
           <Typography variant="h6" gutterBottom>
             Support
           </Typography>
@@ -97,7 +98,7 @@ export const Footer = () => {
           </Box>
         </Grid>
 
-        <Grid size={{ xs: 12, sm: 6, md: 3 }} sx={{ textAlign: "center" }}>
+        <Grid size={{ xs: 12, sm: 6, md: 12 }} sx={{ textAlign: "center", mt:2 }}>
           <Typography variant="h6" gutterBottom>
             Follow Us
           </Typography>

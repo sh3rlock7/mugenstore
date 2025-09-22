@@ -6,9 +6,9 @@ import { Box } from "@mui/material"
 
 export const StoreLayout = () => {
   return (
-    <Box sx={{display: 'flex', flexDirection: 'column', alignItems: "center", minHeight: "100vh"}}>
+    <Box sx={{display: 'flex', flexDirection: 'column', minHeight: "100vh", width:"100vw"}}>
         <Navbar />
-      <Box sx={{flex: 1}}>
+      <Box sx={{flex: 1, width:"100%"}}>
         <Outlet />
       </Box>
       <Footer />

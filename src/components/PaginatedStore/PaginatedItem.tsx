@@ -27,6 +27,8 @@ const PaginatedItem = ({ product }: Props) => {
         bgcolor: "white",
         display: "flex",
         height: "180px",
+        width: {lg: "300px"},
+        mx:{lg:"auto"},
         textAlign: "center",
         flexDirection: "column",
         justifyContent: "center",

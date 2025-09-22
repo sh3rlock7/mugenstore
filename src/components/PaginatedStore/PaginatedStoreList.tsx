@@ -19,7 +19,7 @@ export const PaginatedStoreList = () => {
     }, [page]);
 
   return (
-    <Grid container size={12} spacing={2} sx={{p:2}}>
+    <Grid container size={12} spacing={2} sx={{p:2}} id="top_products">
           <Grid size={12}>
             <Typography variant="h1" sx={{textAlign: "left", ml: 1, mt: 3}}>Top Products</Typography>
           </Grid>
@@ -28,9 +28,10 @@ export const PaginatedStoreList = () => {
               <CircularProgress />
             )
             :
+            
             (
               data?.products.map((product) => (
-                  <Grid size={6} key={product.id}>
+                  <Grid size={{xs: 6, lg: 4}}   key={product.id}>
                     <PaginatedItem product={product} />
                   </Grid>
                 ))

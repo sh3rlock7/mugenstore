@@ -12,6 +12,7 @@ import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { useState } from "react";
 import type { Product } from "../interfaces/Product.interface";
 import { useShoppingStore } from "../store/useShoppingStore";
+import { CustomSnackbar } from "./PaginatedStore/CustomSnackbar";
 
 interface Props {
   product: Product;
@@ -19,9 +20,28 @@ interface Props {
 
 export const ProductItem = ({ product }: Props) => {
   const theme = useTheme();
-  const [isFavorite, setIsFavorite] = useState(false);
-
+  
+  const favorites = useShoppingStore((state) => state.favorites);
   const addProduct  = useShoppingStore( state => state.addProduct );
+  const addFavorite = useShoppingStore(state => state.addFavorite);
+  const removeFavorite = useShoppingStore(state => state.removeFavorite);
+  
+  const isFavorite = favorites.some((p) => p.id === product.id);
+  
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const handleAdd = () => {
+    addProduct(product)
+    setSnackbarOpen(true)
+  }
+  
+  const handleFavoriteToggle = () => {
+  if (isFavorite) {
+    removeFavorite(product.id);
+  } else {
+    addFavorite(product);
+  }
+};
+
 
 
   return (
@@ -47,7 +67,7 @@ export const ProductItem = ({ product }: Props) => {
           "&:focus": { outline: "none" },
           "&:focus-visible": { outline: "none", boxShadow: "none" },
         }}
-        onClick={() => setIsFavorite(!isFavorite)}
+        onClick={handleFavoriteToggle}
       >
         {isFavorite ? (
           <Favorite sx={{ fontSize: 45, color: "red" }} />
@@ -107,7 +127,7 @@ export const ProductItem = ({ product }: Props) => {
           </Stack>
           <Button
             variant="contained"
-            onClick={ () => addProduct(product)}
+            onClick={handleAdd}
             sx={{
               mt: 1,
               fontSize: 18,
@@ -121,6 +141,7 @@ export const ProductItem = ({ product }: Props) => {
           </Button>
         </Stack>
       </Box>
+      <CustomSnackbar  open={snackbarOpen} setOpen={setSnackbarOpen}/>
     </Paper>
   );
 };
