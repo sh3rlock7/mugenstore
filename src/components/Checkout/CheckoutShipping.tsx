@@ -1,9 +1,9 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Container, TextField, useTheme } from "@mui/material"
+import { Accordion, AccordionDetails, AccordionSummary, Box,  TextField, useTheme } from "@mui/material"
 
 export const CheckoutShipping = () => {
     const theme = useTheme();
     return (
-     <Container >
+     <Box >
           <Accordion defaultExpanded sx={{bgcolor: theme.palette.primary.main }}>
               <AccordionSummary 
                 sx={{
@@ -32,7 +32,7 @@ export const CheckoutShipping = () => {
                 </Box>
               </AccordionDetails>
           </Accordion>
-        </Container>
+        </Box>
   )
 }
 

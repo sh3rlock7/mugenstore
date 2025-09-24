@@ -18,7 +18,26 @@ export const Navbar = () => {
   return (
     <AppBar position="static" sx={{ bgcolor: darken(theme.palette.secondary.main, 0.5), minHeight: '80px', mt: 0}}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", boxShadow: "none", borderBottom: "none" }}>
+        
+        
+        
+        
+        
+        
+        
         <Menu sx={{ fontSize: 40, mt: 2.5, color: "white", display:{xs: "block", lg: "none"} }} />
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <Box
           component="img"
           src={Logo}

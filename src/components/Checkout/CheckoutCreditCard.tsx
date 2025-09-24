@@ -1,6 +1,6 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Container, Stack, TextField, useTheme } from "@mui/material"
 import { useState } from "react";
-import PaymentDragon from '../../../public/images/payment.png';
+import PaymentDragon from '/images/payment.png';
 
 export const CheckoutCreditCard = () => {
     const theme = useTheme();
@@ -28,7 +28,7 @@ export const CheckoutCreditCard = () => {
 
 
   return (
-   <Container  sx={{ py: 6 }}>
+   <Box  sx={{ py: 6 }}>
           <Accordion sx={{bgcolor: theme.palette.primary.main, borderRadius: 1 }} defaultExpanded>
             <AccordionSummary sx={{"&:focus": { outline: "none" },
                   "&:focus-visible": {
@@ -37,11 +37,11 @@ export const CheckoutCreditCard = () => {
                     }}}>Payment information</AccordionSummary>
             <AccordionDetails sx={{bgcolor:"#f1f1f1"}}>
                 
-               <Box sx={{display:"flex", justifyContent:"space-between"}}> 
+               <Box sx={{display:"flex",flexDirection:{xs:"column-reverse", sm:"row"}, justifyContent:"space-between"}}> 
                   <Box 
                     component="img"
                     src={PaymentDragon}
-                    sx={{ mx: "auto", height:{lg: "260px"}, width:{lg: "320px"} }}
+                    sx={{ mx: "auto", height:{xs:"200px", lg: "260px"}, width:{lg: "320px"} }}
                     />
 
                   <Box
@@ -110,7 +110,7 @@ export const CheckoutCreditCard = () => {
             <Container sx={{display:"flex", justifyContent:"center"}}>
           <Button variant="contained" sx={{p:2, width:"50%", mt:5}}>Complete my order</Button>        
         </Container>
-    </Container>
+    </Box>
   )
 }
 

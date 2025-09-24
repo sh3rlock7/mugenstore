@@ -7,7 +7,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { useShoppingStore } from "../store/useShoppingStore";
-import emptyCart from "../../public/images/EmptyCart.png";
+import emptyCart from "/images/EmptyCart.png";
 import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 
