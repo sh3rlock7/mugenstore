@@ -108,7 +108,7 @@ export const CheckoutCreditCard = () => {
             </AccordionDetails>
           </Accordion>
             <Container sx={{display:"flex", justifyContent:"center"}}>
-          <Button variant="contained" sx={{p:2, width:"50%", mt:5}}>Complete my order</Button>        
+          <Button onClick={handlePayment} variant="contained" sx={{p:2, width:"50%", mt:5}}>Complete my order</Button>        
         </Container>
     </Box>
   )
